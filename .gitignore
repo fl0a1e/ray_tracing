@@ -1,0 +1,33 @@
+# 编译生成
+build/
+bin/
+out/
+*.o
+*.obj
+*.exe
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# CMake 中间文件
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln.docstates
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
