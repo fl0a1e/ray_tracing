@@ -123,20 +123,23 @@ inline vec3 random_unit_vector() {
     }
 }
 
-inline vec3 random_on_hemisphere(const vec3& normal){
+inline vec3 random_on_hemisphere(const vec3 &normal) {
     vec3 on_unit_sphere = random_unit_vector();
-    if(dot(on_unit_sphere, normal) > 0.0)
+    if (dot(on_unit_sphere, normal) > 0.0)
         return on_unit_sphere;
     else
         return -on_unit_sphere;
 }
 
-inline vec3 reflect(const vec3& v, const vec3& N){
+inline vec3 reflect(const vec3 &v, const vec3 &N) {
     return v - 2 * dot(v, N) * N;
 }
 
-inline vec3 refract(const vec3& v, const vec3& N, double etai_over_etat) {
-
+inline vec3 refract(const vec3 &v, const vec3 &N, double etai_over_etat) {
+    auto cos_theta = std::fmin(dot(-v, N), 1.0);
+    vec3 r_out_perp = etai_over_etat * (v + cos_theta * N);
+    vec3 r_out_parallel = -std::sqrt(std::fabs(1.0 - r_out_perp.length_squared())) * N;
+    return r_out_perp + r_out_parallel;
 }
 
 #endif //SIMPLE_SOFTRT_VEC3_H

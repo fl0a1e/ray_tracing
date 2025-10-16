@@ -4,7 +4,7 @@
 
 ## 效果
 
-![fuzzy_reflected](images/fuzzy_reflected.png)
+![fuzzy_reflected](images/fuzzy_reflected.png "fuzzy_reflected")![hollow_bubble](images/hollow_bubble.png "hollow_bubble")
 
 
 
