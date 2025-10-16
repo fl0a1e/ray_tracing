@@ -11,6 +11,9 @@
 #include <limits>
 #include <memory>
 #include <random>
+#include <thread>
+#include <chrono>
+#include <iomanip>
 
 // Constants
 
@@ -32,6 +35,22 @@ inline double random_double() {
 inline double random_double(double min, double max) {
     // Returns a random real in [min,max).
     return min + (max - min) * random_double();
+}
+
+inline void print_progress(double progress) {
+    int barWidth = 50;
+    std::cout << "\r[";
+
+    int pos = static_cast<int>(barWidth * progress);
+    for (int i = 0; i < barWidth; ++i) {
+        if (i < pos) std::cout << "=";
+        else if (i == pos) std::cout << ">";
+        else std::cout << " ";
+    }
+    std::cout << "] "
+            << std::fixed << std::setprecision(1)
+            << progress * 100.0 << " %";
+    std::cout.flush();
 }
 
 // Common Headers

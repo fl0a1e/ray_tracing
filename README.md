@@ -1,12 +1,6 @@
 # Simple Ray Tracing
 
-基本跟着 Ray Tracing in One Weekend 敲的，和 ShaderToy 的原理类似，主要为了加强 cpp 和光追细节。
-
-## 效果
-
-![fuzzy_reflected](images/fuzzy_reflected.png "fuzzy_reflected")![hollow_bubble](images/hollow_bubble.png "hollow_bubble")
-
-
+基本跟着 Ray Tracing in One Weekend 敲的，和 ShaderToy 的原理类似，主要为了加强 cpp 和对光追细节的理解。
 
 ## 细节
 
@@ -18,6 +12,15 @@
 - 单位球内的随机采样的使用蛮精彩的，可以实现 `N+R`限制 scattered direction 在法线半球内，也可以 fuzzy reflected
 - 不少额外判断在精度处理和光线方向的控制上
 - 俄罗斯轮盘赌用于让光线在每次反弹时以一定概率提前“死亡”，无偏估计，活下来的光线要乘上 1/p 保持期望不变
+- 焦散效果，模拟非针孔的模型，在camera位置做一个抖动，模拟光圈
+
+## 效果
+
+![cover](images/cover.png "cover")
+
+![fuzzy_reflected](images/fuzzy_reflected.png "fuzzy_reflected")   ![hollow_bubble](images/hollow_bubble.png "hollow_bubble")  
+
+![fov](images/fov.png "fov")   ![defocus](images/defocus.png "defocus")
 
 
 
